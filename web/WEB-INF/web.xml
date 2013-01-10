@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+    <filter>
+        <filter-name>Security Filter</filter-name>
+        <filter-class>org.securityfilter.filter.SecurityFilter</filter-class>
+        <init-param>
+            <param-name>config</param-name>
+            <param-value>/WEB-INF/securityfilter-config.xml</param-value>
+            <description>Configuration file location (this is the default value)</description>
+        </init-param>
+        <init-param>
+            <param-name>validate</param-name>
+            <param-value>true</param-value>
+            <description>Validate config file if set to true</description>
+        </init-param>
+    </filter>
+    <!-- map all requests to the SecurityFilter, control what it does with configuration settings -->
+    <filter-mapping>
+        <filter-name>Security Filter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <context-param>
+        <param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
+        <param-value>vanenapplicResource</param-value>
+    </context-param>
+    <servlet>
+        <servlet-name>action</servlet-name>
+        <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+        <init-param>
+            <param-name>config</param-name>
+            <param-value>/WEB-INF/struts-config.xml</param-value>
+        </init-param>
+        <init-param>
+            <param-name>config/beheer</param-name>
+            <param-value>/WEB-INF/struts-beheer.xml</param-value>
+        </init-param>
+        <init-param>
+            <param-name>debug</param-name>
+            <param-value>2</param-value>
+        </init-param>
+        <init-param>
+            <param-name>detail</param-name>
+            <param-value>2</param-value>
+        </init-param>
+        <init-param>
+            <param-name>validate</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>xmlsecuritydatabase</servlet-name>
+        <servlet-class>nl.b3p.commons.security.XmlSecurityDatabase</servlet-class>
+        <init-param>
+            <param-name>config</param-name>
+            <param-value>/WEB-INF/autorization.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>mydatabase</servlet-name>
+        <servlet-class>nl.roy.vanenapplic.services.MyDatabase</servlet-class>
+        <init-param>
+            <param-name>cache</param-name>
+            <param-value/>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+        <servlet-mapping>
+        <servlet-name>action</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+	<welcome-file>
+            index.do
+        </welcome-file>
+    </welcome-file-list>
+    </web-app>

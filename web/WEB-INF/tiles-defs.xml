@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+
+<!--
+     This is a blank Tiles definition file with a commented example.
+-->
+
+<tiles-definitions>
+    <!-- Basisdefinities; geen complete tiles -->
+    <definition name="base" path="/base.jsp">
+        <put name="template" value="/templates/siteTemplate.jsp"/>
+        <put name="top" value="/algemeen/main/top.jsp"/>
+    </definition>
+    <definition name="base.algemeen" extends="base">
+        <put name="topmenu" value="/algemeen/main/empty.jsp"/>
+        <put name="menu" value="/algemeen/nav/menu.jsp"/>
+        <put name="content" value="/algemeen/main/empty.jsp"/>
+    </definition>
+    <definition name="base.algemeen.index" extends="base.algemeen">
+        <put name="content" value="/algemeen/main/index.jsp"/>
+    </definition>    
+</tiles-definitions>

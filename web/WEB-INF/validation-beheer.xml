@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1.3//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_1_3.dtd">
+
+<form-validation>
+    <global>
+
+    </global>
+    <formset>  
+        <form name="beheerKaratekaForm">
+            <field property="geboortedatum" depends="date"> 
+                  <arg0 key="beheer.karateka.geboortedatum"/>
+                  <var>
+                    <var-name>datePatternStrict</var-name>
+                    <var-value>dd-MM-yyyy</var-value>
+                  </var>
+              </field>
+            <field property="voornaam" depends="required, maxlength">
+                <arg0 key="beheer.karateka.voornaam"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>100</var-value>
+                </var>
+            </field><field property="achternaam" depends="required, maxlength">
+                <arg0 key="beheer.karateka.achternaam"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>100</var-value>
+                </var>
+            </field>
+            <field property="tussenvoegsel" depends="maxlength">
+                <arg0 key="beheer.karateka.tussenvoegsel"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>20</var-value>
+                </var>
+            </field>
+            <field property="band" depends="required">
+                <arg0 key="beheer.karateka.band"/>
+            </field>
+            <field property="geslacht" depends="required">
+                <arg0 key="beheer.karateka.geslacht"/>
+            </field>
+        </form>
+        <form name="beheerCategorieForm">
+            <field property="leeftijdvan" depends="required">
+                <arg0 key="beheer.categorie.leeftijdvan"/>
+            </field>
+            <field property="leeftijdtot" depends="required">
+                <arg0 key="beheer.categorie.leeftijdtot"/>
+            </field>
+        </form>
+        <form name="beheerVanencompetitieForm">
+            <field property="datum" depends="required, date"> 
+                  <arg0 key="beheer.vanencompetitie.datum"/>
+                  <var>
+                    <var-name>datePatternStrict</var-name>
+                    <var-value>dd-MM-yyyy</var-value>
+                  </var>
+              </field>
+              <field property="lokatie" depends="required, maxlength">
+                  <arg0 key="beheer.vanencompetitie.lokatie"/>
+                  <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                  <var>
+                      <var-name>maxlength</var-name>
+                      <var-value>100</var-value>
+                  </var>
+              </field>
+              <field property="type" depends="required">
+                  <arg0 key="beheer.vanencompetitie.type"/>                  
+              </field>
+        </form>
+        <form name="beheerPouleForm">
+              <field property="naam" depends="required, maxlength">
+                  <arg0 key="beheer.poule.naam"/>
+                  <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                  <var>
+                      <var-name>maxlength</var-name>
+                      <var-value>100</var-value>
+                  </var>
+              </field>
+               <field property="categorie" depends="required">
+                  <arg0 key="beheer.poule.categorie"/>
+               </field>
+        </form>
+        <form name="beheerPuntenForm">
+             
+        </form>
+    </formset>
+</form-validation>

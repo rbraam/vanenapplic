@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="nl.roy.vanenapplic.hibernate.Karateka" table="karateka">
+        <id name="id" column="id">
+            <generator class="native">
+                <param name="sequence">karateka_id_seq</param>
+            </generator>
+        </id>
+        <property name="voornaam"/>
+        <property name="achternaam"/>
+        <property name="tussenvoegsel"/>
+        <property name="geslacht"/>
+        <property name="geboortedatum"/>
+        <property name="gewicht"/>
+        <property name="beginpuntenku"/>
+        <property name="beginpuntenka"/>
+        <many-to-one name="band" class="nl.roy.vanenapplic.hibernate.Band" lazy="false"/>
+    </class>
+    <class name="nl.roy.vanenapplic.hibernate.Band" table="band">
+        <id name="id" column="id">
+            <generator class="native">
+                <param name="sequence">band_id_seq</param>
+            </generator>
+        </id>
+        <property name="band"/>
+    </class>
+    <class name="nl.roy.vanenapplic.hibernate.Categorie" table="categorie">
+        <id name="id" column="id">
+            <generator class="native">
+                <param name="sequence">categorie_id_seq</param>
+            </generator>
+        </id>
+        <property name="leeftijdvan"/>
+        <property name="leeftijdtot"/>
+        <many-to-one name="band" class="nl.roy.vanenapplic.hibernate.Band" lazy="false"/>
+    </class>
+    <class name="nl.roy.vanenapplic.hibernate.Vanencompetitie" table="vanencompetitie">
+        <id name="id" column="id">
+            <generator class="native">
+                <param name="sequence">vanencompetitie_id_seq</param>
+            </generator>
+        </id>
+        <property name="lokatie"/>
+        <property name="datum"/>
+        <property name="type"/>
+    </class>
+    <class name="nl.roy.vanenapplic.hibernate.Ingedeeldekarateka" table="ingedeeldekarateka">
+        <id name="id" column="id">
+            <generator class="native">
+                <param name="sequence">ingedeeldekarateka_id_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="karateka" class="nl.roy.vanenapplic.hibernate.Karateka" lazy="false"/>
+        <many-to-one name="poule" class="nl.roy.vanenapplic.hibernate.Poule" lazy="false"/>
+        <many-to-one name="vanencompetitie" class="nl.roy.vanenapplic.hibernate.Vanencompetitie" lazy="false"/>
+        <property name="punten"/>
+        <property name="betrouwbarepunten"/>
+    </class>
+    <class name="nl.roy.vanenapplic.hibernate.Poule" table="poule">
+        <id name="id" column="id">
+            <generator class="native">
+                <param name="sequence">poule_id_seq</param>
+            </generator>
+        </id>
+        <property name="naam"/>
+        <many-to-one name="categorie" class="nl.roy.vanenapplic.hibernate.Categorie" lazy="false"/>
+    </class>
+</hibernate-mapping>

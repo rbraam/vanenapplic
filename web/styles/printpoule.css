@@ -1,0 +1,79 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    font-size: 14pt; 
+    color: #000000; 
+    font-family: arial, sans-serif;
+    overflow: auto;
+}
+.topTable{
+    width: 100%;
+}
+.pouleTable{
+    width: 1200px;
+    color: black;
+}
+.karatekanaam{
+    width: 200px;
+}
+.pouleRooster{
+    text-align: center;
+    vertical-align: top;
+}
+.roosterVak{
+    width: 100%;
+    height: 50%;
+    border-bottom: 1px solid black;
+}
+.puntenTotaal{
+    text-align: center;
+    vertical-align: top;
+}
+.puntentotaalVak{
+    width: 100%;
+    height: 50%;
+    border-bottom: 1px solid black;
+}
+.pouleClosed{
+    background-color: gray;
+}
+.pouleRow{
+    width: 100%;
+    height: 80px;
+}
+.pageBreak{
+    page-break-after: always;
+}
+.buttomText{
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.oorkondeWhiteSpace{
+    margin-top: 329pt;    
+}
+.oorkondePunten{
+    margin-top: 0pt;
+    margin-left: 330pt;
+    font-size: 18pt; 
+    font-weight: bold;
+}
+.oorkondeNaam{
+    margin-left: 190pt;
+    text-align: center;
+    font-size: 24pt; 
+    font-weight: bold;
+    width: 510pt;
+    height: 60pt;
+    vertical-align: center;
+}
+.oorkondeDatum{
+    margin-top: 28pt;
+    margin-left: 620pt;
+    font-size: 8pt;    
+    font-weight: bold;
+}
+.errormessages{
+    border: 1px solid #ff0000;
+    color: #ff0000;
+   
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+    <definition name="base.beheer" extends="base">
+        <put name="topmenu" value="/beheer/main/empty.jsp"/>
+        <put name="menu" value="/beheer/nav/menu.jsp"/>
+        <put name="content" value="/beheer/main/empty.jsp"/>
+    </definition>
+    <definition name="base.beheer.index" extends="base.beheer">
+        <put name="content" value="/beheer/main/index.jsp"/>        
+    </definition>
+    <definition name="base.beheer.karateka" extends="base.beheer">
+        <put name="content" value="/beheer/main/beheerKarateka.jsp"/>        
+    </definition>
+    <definition name="base.beheer.categorie" extends="base.beheer">
+        <put name="content" value="/beheer/main/beheerCategorie.jsp"/>        
+    </definition>
+    <definition name="base.beheer.vanencompetitie" extends="base.beheer">
+        <put name="content" value="/beheer/main/beheerVanencompetitie.jsp"/>        
+    </definition>
+    <definition name="base.beheer.poule" extends="base.beheer">
+        <put name="content" value="/beheer/main/beheerPoule.jsp"/>        
+    </definition>
+    <definition name="base.beheer.toolsVanencompetitie" extends="base.beheer">
+        <put name="content" value="/beheer/main/toolsVanencompetitie.jsp"/>        
+    </definition>
+    <definition name="base.beheer.punten" extends="base.beheer">
+        <put name="content" value="/beheer/main/beheerPunten.jsp"/>        
+    </definition>
+    
+</tiles-definitions>

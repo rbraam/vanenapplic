@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+"http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+
+<struts-config>
+    <form-beans>
+        <form-bean name="beheerKaratekaForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <!-- nodig voor crud action-->
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <!-- in form -->
+            <form-property name="id" type="java.lang.Integer"/>
+            <form-property name="voornaam" type="java.lang.String"/>
+            <form-property name="achternaam" type="java.lang.String"/>
+            <form-property name="tussenvoegsel" type="java.lang.String"/>
+            <form-property name="band" type="java.lang.Integer"/>
+            <form-property name="geslacht" type="java.lang.String"/>
+            <form-property name="geboortedatum" type="java.lang.String"/>
+            <form-property name="gewicht" type="java.lang.String"/>
+            <form-property name="beginpuntenka" type="java.lang.Integer"/>
+            <form-property name="beginpuntenku" type="java.lang.Integer"/>
+            <form-property name="totaalpuntenka" type="java.lang.Integer"/>
+            <form-property name="totaalpuntenku" type="java.lang.Integer"/>
+        </form-bean>
+        <form-bean name="beheerCategorieForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <!-- nodig voor crud action-->
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <!-- in form -->
+            <form-property name="id" type="java.lang.Integer"/>
+            <form-property name="naam" type="java.lang.String"/>
+            <form-property name="band" type="java.lang.Integer"/>
+            <form-property name="leeftijdvan" type="java.lang.Integer"/>
+            <form-property name="leeftijdtot" type="java.lang.Integer"/>
+        </form-bean>
+        <form-bean name="beheerVanencompetitieForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <!-- nodig voor crud action-->
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <!-- in form -->
+            <form-property name="id" type="java.lang.Integer"/>
+            <form-property name="lokatie" type="java.lang.String"/>
+            <form-property name="datum" type="java.lang.String"/>
+            <form-property name="type" type="java.lang.String"/>
+            <form-property name="karatekas" type="java.lang.Integer[]"/>
+        </form-bean>
+        <form-bean name="beheerPouleForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <!-- nodig voor crud action-->
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <!-- in form -->
+            <form-property name="searchVanencompetitie" type="java.lang.Integer"/>
+            <form-property name="searchCategorie" type="java.lang.Integer"/>
+            <form-property name="id" type="java.lang.Integer"/>
+            <form-property name="naam" type="java.lang.String"/>
+            <form-property name="categorie" type="java.lang.Integer"/>
+            <form-property name="karatekas" type="java.lang.Integer[]"/>
+        </form-bean>
+        <form-bean name="beheerPuntenForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <!-- nodig voor crud action-->
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <!-- in form -->
+            <form-property name="punten" type="java.lang.String[]"/>
+            <form-property name="vanencompetitie" type="java.lang.Integer"/>
+        </form-bean>
+        <form-bean name="toolsVanencompetitieForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <!-- nodig voor crud action-->
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <!-- in form -->
+            <form-property name="vanencompetitie" type="java.lang.Integer"/>            
+        </form-bean>
+        <form-bean name="printOorkondesForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <!-- nodig voor crud action-->
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <!-- in form -->            
+        </form-bean>
+        
+    </form-beans>
+    
+    <global-exceptions>
+        
+    </global-exceptions>
+    
+    <global-forwards>
+        
+    </global-forwards>
+    
+    <action-mappings>
+        <action path="/beheer" forward="base.beheer.index"/>
+        
+        <action path="/beheerKarateka" name="beheerKaratekaForm" scope="request" type="nl.roy.vanenapplic.struts.BeheerKaratekaAction" validate="false">
+            <forward name="success" path="base.beheer.karateka"/>
+            <forward name="failure" path="base.beheer.karateka"/>
+        </action>
+        <action path="/beheerCategorie" name="beheerCategorieForm" scope="request" type="nl.roy.vanenapplic.struts.BeheerCategorieAction" validate="false">
+            <forward name="success" path="base.beheer.categorie"/>
+            <forward name="failure" path="base.beheer.categorie"/>
+        </action>
+        <action path="/beheerVanencompetitie" name="beheerVanencompetitieForm" scope="request" type="nl.roy.vanenapplic.struts.BeheerVanencompetitieAction" validate="false">
+            <forward name="success" path="base.beheer.vanencompetitie"/>
+            <forward name="failure" path="base.beheer.vanencompetitie"/>
+        </action>
+        <action path="/beheerPunten" name="beheerPuntenForm" scope="request" type="nl.roy.vanenapplic.struts.BeheerPuntenAction" validate="false">
+            <forward name="success" path="base.beheer.punten"/>
+            <forward name="failure" path="base.beheer.punten"/>
+        </action>
+        <action path="/beheerPoule" name="beheerPouleForm" scope="request" type="nl.roy.vanenapplic.struts.BeheerPouleAction" validate="false">
+            <forward name="success" path="base.beheer.poule"/>
+            <forward name="failure" path="base.beheer.poule"/>
+        </action>
+        <action path="/printpoules" scope="request" type="nl.roy.vanenapplic.struts.PrintPoulesAction">
+            <forward name="success" path="/main/printpoule.jsp"/>
+            <forward name="failure" path="/main/printpoule.jsp"/>
+        </action>
+        <action path="/toolsVanencompetitie" name="toolsVanencompetitieForm" scope="request" type="nl.roy.vanenapplic.struts.ToolsVanencompetitieAction">
+            <forward name="success" path="base.beheer.toolsVanencompetitie"/>
+            <forward name="list" path="/main/list.jsp"/>
+            <forward name="failure" path="base.beheer.toolsVanencompetitie"/>
+        </action>
+        <action path="/printOorkondes" name="printOorkondesForm" scope="request" type="nl.roy.vanenapplic.struts.PrintOorkondesAction">
+            <forward name="success" path="/main/printOorkondes.jsp"/>
+            <forward name="failure" path="/main/printOorkondes.jsp"/>
+        </action>
+    </action-mappings>
+    
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+    
+    <message-resources parameter="vanenapplicResource" null="true"/> 
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml,/WEB-INF/tiles-defs-beheer.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property property="pathnames" value="/WEB-INF/validator-rules.xml, /WEB-INF/validation-beheer.xml"/>
+        <set-property property="stopOnFirstError" value="false"/>
+    </plug-in>
+    
+</struts-config>

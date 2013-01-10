@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/vanenapplic">
+  <Resource 
+  driverClassName="org.postgresql.Driver" 
+  maxActive="100" 
+  maxIdle="30" 
+  maxWait="5000"
+  name="jdbc/vanenapplic"
+  password="dev" 
+  type="javax.sql.DataSource" 
+  url="jdbc:postgresql://localhost:5433/vanenapplic" 
+  username="dev" 
+  validationQuery="select now();"/>
+</Context>

@@ -1,0 +1,51 @@
+<project name="hibernate-schemaexport" default="schemaexport" basedir=".">
+	
+	<dirname property="hibernate-schemaexport.basedir" file="${ant.file.hibernate-schemaexport}"/>
+	
+	<property file="${hibernate-schemaexport.basedir}/hibernate.properties"/>
+	<property name="output.schema" value="${hibernate-schemaexport.basedir}/schema-export.sql"/>
+	
+	<path id="hibernate.schemaexport.classpath">
+		<fileset dir="build/web/WEB-INF/lib">
+			<include name="*.jar"/>
+		</fileset>		
+		<pathelement path="build/web/WEB-INF/classes"/>
+	</path>
+	
+	<target name="schemaexport">
+		<taskdef name="schemaexport"
+			classname="org.hibernate.tool.hbm2ddl.SchemaExportTask"
+			classpathref="hibernate.schemaexport.classpath">
+		</taskdef>
+
+		<schemaexport
+			properties="${hibernate-schemaexport.basedir}/hibernate.properties"
+			quiet="false"
+			create="true"
+			text="true"
+			delimiter=";"
+			namingstrategy="org.hibernate.cfg.ImprovedNamingStrategy"
+			output="${output.schema}">
+			
+			<fileset dir="src">
+				<include name="**/*.hbm.xml"/>
+			</fileset>
+			
+			
+		</schemaexport>
+		
+		<!-- maak alle regels met 'create sequence ...' commentaar. Deze regels
+		     worden aangemaakt door de sequence param voor de generator van een
+		     id, maar deze zijn niet nodig omdat met sql-type het type van de
+		     kolom 'serial' wordt en daarmee automatisch de sequence wordt aan-
+		     gemaakt.
+		-->
+		<replaceregexp
+			file="${output.schema}"
+			match="^\s*(create sequence.*)$"
+			replace="-- \1"
+			flags="gm"
+		/>
+		<fixcrlf srcDir="." includes="${output.schema}"/>
+	</target>
+</project>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE securityfilter-config PUBLIC
+    "-//SecurityFilter.org//DTD Security Filter Configuration 2.0//EN"
+    "http://www.securityfilter.org/dtd/securityfilter-config_2_0.dtd">
+<!--
+    Document   : securityfilter-config.xml
+    Created on : 6 september 2006, 11:46
+    Author     : Roy
+    Description:
+        Purpose of the document follows.
+-->
+<securityfilter-config>
+
+    <!-- Define the Login Configuration for this Application -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>
+                vanenapplic
+            </web-resource-name>
+            <url-pattern>/beheer/*</url-pattern>
+            <http-method>POST</http-method>
+            <http-method>GET</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>beheerder</role-name>
+        </auth-constraint>
+        <!--
+        <user-data-constraint>
+        <description>SSL not required</description>
+        <transport-guarantee>NONE</transport-guarantee>
+        </user-data-constraint>
+        -->
+    </security-constraint>
+    <login-config>
+        <auth-method>BASIC</auth-method>
+        <form-login-config>
+            <form-login-page>/login.do</form-login-page>
+            <form-error-page>/invalidlogin.do</form-error-page>
+            <form-default-page>/index.do</form-default-page>
+        </form-login-config>
+    </login-config>
+
+    <realm className="nl.b3p.commons.security.XmlSecurityRealm"/>
+
+</securityfilter-config>

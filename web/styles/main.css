@@ -1,0 +1,179 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    font-size: 8pt; 
+    color: #000000; 
+    background-color: #D6EAF2;
+    font-family: arial, sans-serif;
+    overflow: auto;
+}
+
+h1{
+    color: #186198;
+    font-size: 15pt;
+    font-weight: normal;
+    font-family: arial, sans-serif;
+}
+h2{
+    color: #186198;
+    font-size: 10pt;
+    font-weight: normal;
+    font-family: arial, sans-serif;
+    
+}
+h3{
+    color: red;
+    font-size: 10pt;
+    font-weight: normal;
+    font-family: arial, sans-serif;
+}
+#bodyContent{
+    position: static;
+    float: none;
+    width: 997px;
+    height: 100%;
+    margin-left: auto; 
+    margin-right: auto;
+    background-color: #FFF;
+}
+#top{
+    position: static;
+    float: left;
+    width: 100%;
+    height: 50px;
+    color: #fff;
+    background-color: #003333;
+    background-image: url(../images/bovenbalk.gif);
+    background-repeat: repeat-x;
+    background-position: top right;
+    
+}
+#topmenu{
+    position: static;
+    float: left;
+    width: 100%;
+    height: 25px;
+    background-color: #186198;   
+    color: white;
+}
+
+#leftMenu{
+    position: static;
+    float: left;
+    width: 200px;
+    height: 1100px;
+    color: white;
+    background-color: #186198; 
+    /*background-image: url(../images/menubackground.gif);
+    background-repeat: no-repeat;
+    background-position: top right;*/
+}
+#menuItems{
+    margin-top: 10px;
+    position static;
+    float: left;
+    width: 200px;
+    color: white;
+}
+#content{
+    padding-top: 10px;
+    padding-left: 10px;
+    position: static;
+    float: left;
+    width: 787px;
+    height: 1100px;
+    background-color: #E0E0E0;
+    text-align: top;
+}
+ul#menu  
+{  
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+ul#menu li {
+  margin-left: 5px;
+  margin-bottom: 5px;
+  padding-left:5px;
+  color: #ffffff;
+  text-align: left;
+  background-image: url(../images/bg_sideMenuItem.gif);
+} 
+
+ul#menu li a, ul#menu li a:link,ul#menu li a:active,ul#menu li a:visited, ul#menu li a:hover {
+  display: inline;
+  text-align: left;
+  vertical-align: middle;
+  color: #ffffff;
+  font-size: 8pt;
+  text-decoration: none;
+}
+.toptext{
+    vertical-aling: middle;
+    font-size: 20pt;
+    margin: 10px;
+}
+.menuLink a, menuLink a:link, menuLink a:active, menuLink a:visited, menuLink a:hover{
+  color: white;
+}
+.link a, link a:link, link a:active, link a:visited, link a:hover{
+  color: blue;
+}
+.scrolldiv {
+    padding: 0;
+    margin: 0;
+    height: 130px;
+    width: 775px;
+    overflow: auto;
+    clear: both;
+    background-color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.headRow{
+background-color: #186198;
+color: White;
+}
+.evenRow{
+background-color: #D6EAF2;
+cursor: pointer;
+}
+.oddRow{
+cursor: pointer;
+}
+.selectedRow{
+background-color: #B3DAEA;
+}
+.knop{
+text-align: center;
+clear: none;
+width: 100px;
+}
+.lijstknop{
+    border: 0px;
+    background-color: #ffffff;
+    cursor: pointer;
+    color: #186198;    
+}
+.beheerderPaginasContainer{
+    margin-left: 5px;
+}
+.knopBreed{
+text-align: center;
+clear: none;
+width: 180px;
+}
+.errormessages{
+    border: 1px solid #ff0000;
+    color: #ff0000;
+}
+.kolommen{
+    float: left;
+    padding: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    width: 350px;
+    border: 1px solid black;
+    clear: none;
+}
