@@ -6,9 +6,9 @@
   maxIdle="30" 
   maxWait="5000"
   name="jdbc/vanenapplic"
-  password="dev" 
+  password="vanenapplic" 
   type="javax.sql.DataSource" 
-  url="jdbc:postgresql://localhost:5433/vanenapplic" 
-  username="dev" 
+  url="jdbc:postgresql://localhost:5432/vanenapplic" 
+  username="vanenapplic" 
   validationQuery="select now();"/>
 </Context>
