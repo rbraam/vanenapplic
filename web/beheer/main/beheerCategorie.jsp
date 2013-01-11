@@ -23,14 +23,14 @@
                     <tr>
                     <c:forEach items="${listCategorien}" var="c" varStatus="status">
                         <c:url var="link" value="beheerCategorie.do?selectedId=${c.id}"/>
-                        <c:set var="class" value="oddRow"/>
+                        <c:set var="cssClass" value="oddRow"/>
                         <c:if test="${status.index%2 == 0}">
-                            <c:set var="class" value="evenRow"/>
+                            <c:set var="cssClass" value="evenRow"/>
                         </c:if>
                         <c:if test="${c.id==selectedId}">
-                            <c:set var="class" value="selectedRow"/>
+                            <c:set var="cssClass" value="selectedRow"/>
                         </c:if>
-                        <tr class="${class}" onclick="javascript: window.location.href='${link}';">
+                        <tr class="${cssClass}" onclick="javascript: window.location.href='${link}';">
                             <td><c:out value="${c.band.band}"/></td> 
                             <td><c:out value="${c.leeftijdvan}"/></td>
                             <td><c:out value="${c.leeftijdtot}"/></td>
