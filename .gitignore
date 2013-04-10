@@ -1,7 +1,7 @@
-build/**/*
+/build/
 
-deploy/**/*
+/deploy/
 
-dist/**/*
+/dist/
 
-nbproject/private/**/*
+/nbproject/private/
