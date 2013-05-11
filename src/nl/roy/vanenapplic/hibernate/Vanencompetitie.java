@@ -24,6 +24,7 @@ public class Vanencompetitie {
     private String type;
     public static String TYPE_KUMITE="kumite";
     public static String TYPE_KATA="kata";
+    private Organisatie organisatie;
     /** Creates a new instance of Vanencompetitie */
     public Vanencompetitie() {
     }
@@ -81,5 +82,13 @@ public class Vanencompetitie {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public Organisatie getOrganisatie() {
+        return organisatie;
+    }
+
+    public void setOrganisatie(Organisatie organisatie) {
+        this.organisatie = organisatie;
     }
 }

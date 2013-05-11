@@ -41,6 +41,6 @@
         </form-login-config>
     </login-config>
 
-    <realm className="nl.b3p.commons.security.XmlSecurityRealm"/>
+    <realm className="nl.roy.vanenapplic.services.SecurityRealm"/>
 
 </securityfilter-config>

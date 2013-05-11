@@ -47,6 +47,7 @@
         <property name="lokatie"/>
         <property name="datum"/>
         <property name="type"/>
+        <many-to-one name="organisatie" class="nl.roy.vanenapplic.hibernate.Organisatie"/>
     </class>
     <class name="nl.roy.vanenapplic.hibernate.Ingedeeldekarateka" table="ingedeeldekarateka">
         <id name="id" column="id">
@@ -69,4 +70,37 @@
         <property name="naam"/>
         <many-to-one name="categorie" class="nl.roy.vanenapplic.hibernate.Categorie" lazy="false"/>
     </class>
+    <class name="nl.roy.vanenapplic.hibernate.Gebruiker" table="gebruiker">
+        <id name="id" column="id">
+            <generator class="native">
+                <param name="sequence">gebruiker_id_seq</param>
+            </generator>
+        </id>
+        <property name="naam"/>
+        <property name="gebruikersnaam"/>
+        <property name="wachtwoord"/>
+        <many-to-one name="organisatie" class="nl.roy.vanenapplic.hibernate.Organisatie"/>
+        <set name="roles" table="gebruiker_roles" cascade="all" lazy="false">
+            <key column="gebruiker" />
+            <many-to-many column="role"  class="nl.roy.vanenapplic.hibernate.Role" />
+        </set>
+    </class>
+    <class name="nl.roy.vanenapplic.hibernate.Role" table="role">
+        <id name="id" column="id">
+            <generator class="native">
+                <param name="sequence">role_id_seq</param>
+            </generator>
+        </id>
+        <property name="naam"/>
+        <property name="omschrijving"/>
+    </class>
+    <class name="nl.roy.vanenapplic.hibernate.Organisatie" table="organisatie">
+        <id name="id" column="id">
+            <generator class="native">
+                <param name="sequence">organisatie_id_seq</param>
+            </generator>
+        </id>
+        <property name="naam"/>
+    </class>
+    
 </hibernate-mapping>

@@ -88,8 +88,6 @@
                   <arg0 key="beheer.poule.categorie"/>
                </field>
         </form>
-        <form name="beheerPuntenForm">
-             
-        </form>
+        
     </formset>
 </form-validation>

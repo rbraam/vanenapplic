@@ -17,9 +17,10 @@ public class Gebruiker implements Principal{
     private Integer id;
     private String naam;
     private String gebruikersnaam;
-    private String wachtwoord;
+    private String wachtwoord;    
+    private Organisatie organisatie;
 
-    private Set roles;
+    private Set<Role> roles;
 
     /** Creates a new instance of Beheerder */
     public Gebruiker() {
@@ -62,7 +63,7 @@ public class Gebruiker implements Principal{
         Iterator it = roles.iterator();
         while (it.hasNext()) {
             Role theUserroles = (Role) it.next();
-            if (role.equalsIgnoreCase(theUserroles.getName())) {
+            if (role.equalsIgnoreCase(theUserroles.getNaam())) {
                 return true;
             }
         }
@@ -83,6 +84,14 @@ public class Gebruiker implements Principal{
     public String toString(){
         return getNaam();
 
+    }
+
+    public Organisatie getOrganisatie() {
+        return organisatie;
+    }
+
+    public void setOrganisatie(Organisatie organisatie) {
+        this.organisatie = organisatie;
     }
 
 }

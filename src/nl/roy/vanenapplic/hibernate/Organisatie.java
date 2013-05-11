@@ -12,4 +12,21 @@ package nl.roy.vanenapplic.hibernate;
 public class Organisatie {
     private Integer id;
     private String naam;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNaam() {
+        return naam;
+    }
+
+    public void setNaam(String naam) {
+        this.naam = naam;
+    }
+    
 }

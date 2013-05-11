@@ -12,8 +12,8 @@ package nl.roy.vanenapplic.hibernate;
 public class Role {
 
     private Integer id;
-    private String name;
-    private String description;
+    private String naam;
+    private String omschrijving;
 
     public static String SUPERBEHEERDER="superbeheerder";
 
@@ -30,21 +30,22 @@ public class Role {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNaam() {
+        return naam;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNaam(String naam) {
+        this.naam = naam;
     }
 
-    public String getDescription() {
-        return description;
+    public String getOmschrijving() {
+        return omschrijving;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setOmschrijving(String omschrijving) {
+        this.omschrijving = omschrijving;
     }
+
 
 }
 

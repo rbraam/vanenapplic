@@ -43,26 +43,22 @@ public class SecurityRealm implements SecurityRealmInterface, ExternalAuthentica
         Transaction tx = sess.beginTransaction();
         tx.begin();
         try {
-            Gebruiker gebruiker = null;
-            Object o=sess.createQuery(
+            Gebruiker gebruiker=(Gebruiker) sess.createQuery(
                     "from Gebruiker g where " +
                     "lower(g.gebruikersnaam) = lower(:gebruikersnaam) " +
                     "and g.wachtwoord = :wachtwoord")
                     .setParameter("gebruikersnaam", username)
                     .setParameter("wachtwoord", encpw)
                     .uniqueResult();
-            if (o!=null){
-                gebruiker=(Gebruiker)o;
-            }else{
-                o=sess.createQuery(
+            if (gebruiker==null){
+                gebruiker=(Gebruiker) sess.createQuery(
                     "from Gebruiker g where " +
                     "lower(g.gebruikersnaam) = lower(:gebruikersnaam) " +
                     "and g.wachtwoord = :wachtwoord")
                     .setParameter("gebruikersnaam", username)
                     .setParameter("wachtwoord", password)
                     .uniqueResult();
-                if (o!=null){
-                    gebruiker =(Gebruiker)o;
+                if (gebruiker!=null){
                     gebruiker.setWachtwoord(encpw);
                     sess.save(gebruiker);
                 }
@@ -91,6 +87,7 @@ public class SecurityRealm implements SecurityRealmInterface, ExternalAuthentica
                     .uniqueResult();
             return gebruiker;
         } catch (Exception e) {
+            log.error("Error while getting Gebruiker principal",e);
             return null;
         } finally {
             tx.commit();
